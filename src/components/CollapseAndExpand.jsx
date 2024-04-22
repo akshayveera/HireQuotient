@@ -14,7 +14,7 @@ const CollapseAndExpand = ({asset, info }) => {
   return (
     <section className='border-b'>
 
-        <button className='font-bold text-[#303883] px-3 py-4 flex items-center gap-4 hover:bg-blue-50 w-full rounded-md' onClick={()=>{
+        <button className='font-bold text-[#303883] px-3 py-4 flex items-center gap-4 hover:bg-gray-100 w-full rounded-md ' onClick={()=>{
             setFlag(!flag);
         }}>
             {flag ? <img src={up} alt="arrow up icon" className="h-4" /> : <img src={down} alt="arrow up icon" className="h-4" /> }
@@ -23,7 +23,7 @@ const CollapseAndExpand = ({asset, info }) => {
         
         {flag && (<table className='w-full rounded-xl shadow-md'>
             <thead className=''>
-                <tr className='border-b bg-gray-100'>
+                <tr className='border-b bg-gray-200'>
                     {info[0]?.name && <th className="w-[30%] text-xs text-[#8998ad] text-left p-4 rounded-tl-lg">NAME OF THE HOLDING</th>}
                     {info[0]?.ticker && <th className="w-[17%] text-xs text-[#8998ad] text-left p-4">TICKER</th>}
                     {info[0]?.avg_price && <th className="w-[11%] text-xs text-[#8998ad] text-left p-4">AVERAGE PRICE</th>}
@@ -36,7 +36,7 @@ const CollapseAndExpand = ({asset, info }) => {
             <tbody>
                 {info.map((item, idx)=>{
                     return (
-                        <tr className={ ((idx+1)%2 === 0 ? "bg-gray-100 " : " ")  + "hover:bg-blue-50 "} key={item.name+idx}>
+                        <tr className={ ((idx+1)%2 === 0 ? "bg-gray-100 " : " ")  + "hover:bg-blue-50  "} key={item.name+idx}>
                             {item?.name && <td className="w-[30%] font-bold text-xs text-[#303883] text-left py-4 px-5">{item?.name}</td>}
                             {item?.ticker && <td className="w-[17%] font-bold text-xs text-[#303883] text-left py-4 px-5" >{item?.ticker}</td>}
                             {item?.avg_price && <td className="w-[11%] font-bold text-xs text-[#303883] text-left py-4 px-5">{item?.avg_price}</td>}

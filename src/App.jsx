@@ -52,7 +52,7 @@ function App() {
 
   return (
     <section className="bg-blue-50 w-[100vw] min-h-[100vh] p-5">
-      <article className="px-5 bg-white rounded-lg w-full shadow-md"> 
+      <article className=" bg-white rounded-lg w-full shadow-md"> 
         {assetList.map((item, idx)=>{
           return <CollapseAndExpand asset={item} info={info[item]} key={item+idx}/>
         })}          
