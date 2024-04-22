@@ -14,7 +14,7 @@ const CollapseAndExpand = ({asset, info }) => {
   return (
     <section className='border-b'>
 
-        <button className='font-bold text-[#303883] px-3 py-4 flex items-center gap-4' onClick={()=>{
+        <button className='font-bold text-[#303883] px-3 py-4 flex items-center gap-4 hover:bg-blue-50 w-full rounded-md' onClick={()=>{
             setFlag(!flag);
         }}>
             {flag ? <img src={up} alt="arrow up icon" className="h-4" /> : <img src={down} alt="arrow up icon" className="h-4" /> }
@@ -29,14 +29,14 @@ const CollapseAndExpand = ({asset, info }) => {
                     {info[0]?.avg_price && <th className="w-[11%] text-xs text-[#8998ad] text-left p-4">AVERAGE PRICE</th>}
                     {info[0]?.market_price && <th className="w-[11%] text-xs text-[#8998ad] text-left p-4">MARKET PRICE</th>}
                     {info[0]?.latest_chg_pct && <th className="w-[16%] text-xs text-[#8998ad] text-left p-4">LATEST CHANGE PERCENTAGE</th>}
-                    {info[0]?.market_value_ccy && <th className="w-[15%] text-xs text-[#8998ad] text-left p-4">MARKET VALUE IN BASE CCY</th>}
+                    {info[0]?.market_value_ccy && <th className="w-[15%] text-xs text-[#8998ad] text-left p-4 rounded-tr-lg">MARKET VALUE IN BASE CCY</th>}
                 </tr>
             </thead>
 
             <tbody>
                 {info.map((item, idx)=>{
                     return (
-                        <tr className='bg-slate-100' key={item.name+idx}>
+                        <tr className={ ((idx+1)%2 === 0 ? "bg-gray-100 " : " ")  + "hover:bg-blue-50 "} key={item.name+idx}>
                             {item?.name && <td className="w-[30%] font-bold text-xs text-[#303883] text-left py-4 px-5">{item?.name}</td>}
                             {item?.ticker && <td className="w-[17%] font-bold text-xs text-[#303883] text-left py-4 px-5" >{item?.ticker}</td>}
                             {item?.avg_price && <td className="w-[11%] font-bold text-xs text-[#303883] text-left py-4 px-5">{item?.avg_price}</td>}
